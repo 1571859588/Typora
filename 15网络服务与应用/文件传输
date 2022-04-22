@@ -1,0 +1,63 @@
+# 文件传输
+
+主机之间传输文件是IP网络的一个重要功能，如今人们可以方便地使用网页、邮箱进行文件传输。在互联网早期，Web还未出现，用户使用命令行工具进行文件传输。其中最通用的方式就是使用FTP以及TFTP。
+
+## FTP
+
+![image-20220422174410063](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220422174410063.png)
+
+ASCII 文件信息
+
+Binary 二进制模式 用于传输图像信息
+
+### TCP与UDP的区别
+
+TCP可以保证数据使安全可靠的，但是占资源
+
+### FTP传输过程
+
+#### 主动模式(PORT)
+
+![image-20220422174858399](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220422174858399.png)
+
+用户登录认证类似于3A认证
+
+21表示端口号
+
+1023的端口及以下都有特殊含义
+
+服务器会主动地跟客户端说我要用20端口进行联系
+
+20端口是用来主动模式的
+
+#### 被动模式(PASV)
+
+![image-20220422175037786](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220422175037786.png)
+
+### 配置命令介绍
+
+#### 设备作为服务器端
+
+先进入到3A视图
+
+创建用户名和密码
+
+![image-20220422175342444](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220422175342444.png)
+
+#### 设备作为客户端
+
+客户端和服务器端的IP路由必须是可达的
+
+![image-20220422175546806](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220422175546806.png)
+
+输入密码的时候，密码不显示
+
+![image-20220422175627425](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220422175627425.png)
+
+#### 配置示例
+
+![image-20220422175716060](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220422175716060.png)
+
+![image-20220422175835611](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220422175835611.png)
+
+![image-20220422175935743](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220422175935743.png)
