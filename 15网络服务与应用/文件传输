@@ -188,3 +188,30 @@ Request的原因：因为有不止一台DHCP服务器，所以用的是广播，
 
 只需要使能一次即可
 
+# HTTP
+
+当我们在浏览器中输入URL时，浏览器就可以从某处获取内容，并将页面内容显示在浏览器中。该过程是通过HTTP实现的。那么，HTTP是如何实现的呢？
+
+## 背景
+
+![image-20220424234105992](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220424234105992.png)
+
+c/s架构：客户端和服务端
+
+
+
+![image-20220424234233776](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220424234233776.png)
+
+## 传输示例
+
+HOST：服务器
+
+![image-20220424234722459](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220424234722459.png)
+
+传输层使用TCP
+
+封装到网络层IP
+
+DNS：将域名解析为IP地址
+
+![image-20220424235132995](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220424235132995.png)

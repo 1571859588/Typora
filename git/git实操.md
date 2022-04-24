@@ -101,6 +101,8 @@ git switch dev
 
 #### 克隆远程库已经建好的分支到本地并创建此分支
 
+已经创建好远程库的分支之后需要git pull之后下面才生效
+
 ```
 git checkout -b feature origin/develop
 在本地创建feature分支，该分支来自远程库origin的develop分支
