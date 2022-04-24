@@ -60,4 +60,131 @@ TCP可以保证数据使安全可靠的，但是占资源
 
 ![image-20220422175835611](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220422175835611.png)
 
+配置好服务器再登录客户端
+
 ![image-20220422175935743](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220422175935743.png)
+
+## TFTP
+
+### 与FTP的区别
+
+![image-20220423232110721](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220423232110721.png)	UDP：快速传输，允许少量数据丢失
+
+![image-20220423232232748](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220423232232748.png)
+
+### TFTP传输示例
+
+在应用层完成
+
+![image-20220423232316254](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220423232316254.png)
+
+与TCP三次握手没关系
+
+所以ACK的意思不是对文件作确认，不需要确认
+
+但是TFTP没办法去查看服务器上的文件目录
+
+### 配置命令介绍
+
+#### 设备作为客户端
+
+![image-20220423233048282](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220423233048282.png)
+
+上传和下载都不需要登录认证
+
+# Telnet
+
+为方便通过命令行管理设备，可以使用Telnet协议对设备进行管理。Telnet是如何完成设备管理的？又该何如进行配置呢？
+
+## Telnet应用场景
+
+Telnet可以远程登录
+
+![image-20220423233554612](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220423233554612.png)
+
+前提需要能够ping到服务器，即ip可达
+
+## 虚拟用户界面
+
+![image-20220423234124387](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220423234124387.png)
+
+所有数据都是封装到TCP里的
+
+## 配置命令介绍
+
+![image-20220423234337156](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220423234337156.png)
+
+![image-20220423234535615](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220423234535615.png)
+
+aaa表示用户名加密码的方式
+
+## 配置示例
+
+![image-20220423234714581](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220423234714581.png)
+
+![image-20220423234835034](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220423234835034.png)
+
+# DHCP
+
+为解决传统静态手工方式配置IP地址等网络参数的不足，DHCP应运而生，其可以实现网络动态合理地分配IP地址给主机使用。那么DHCP的工作原理是什么？应该如何进行配置呢？
+
+## 手动配置网络参数的问题
+
+![image-20220424000353759](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220424000353759.png)
+
+![image-20220424000412973](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220424000412973.png)
+
+## 基本概念
+
+![image-20220424000615202](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220424000615202.png)
+
+需要DHCP地址的都叫做客户端
+
+## DHCP优点
+
+![image-20220424000834930](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220424000834930.png)
+
+所有找这个DHCP服务器拿到的地址的都属于这个范围（图左）
+
+超过指定时间如果未反应会收回地址
+
+## 工作原理
+
+![image-20220424001113210](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220424001113210.png)
+
+需要在同一个二层广播域
+
+问是用广播去问的
+
+必须是要二层广播域可达
+
+使用完这些地址后服务器会进行记录
+
+Request的原因：因为有不止一台DHCP服务器，所以用的是广播，当使用了一个服务器之后，其他服务器的这个地址就不需要了，就要回收起来
+
+## 租期更新
+
+![image-20220424001418050](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220424001418050.png)
+
+在50%是使用的单播
+
+当在87.5%的时候就会用广播域，来告诉所有服务器来租给它
+
+## 配置命令介绍
+
+![image-20220424001727567](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220424001727567.png)
+
+![image-20220424001803422](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220424001803422.png)
+
+## DHCP接口地址池配置
+
+![image-20220424002130508](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220424002130508.png)
+
+不能使用已经配置成服务器的地址，即图中dns地址10.1.1.2已经给服务器使用了，就不能给客户端使用了
+
+## DHCP全局地址池配置
+
+![image-20220424002139889](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220424002139889.png)
+
+只需要使能一次即可
+

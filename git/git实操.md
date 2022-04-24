@@ -1,5 +1,3 @@
-# 
-
 # 命令行方式
 
 ## 创建本地Git仓库
@@ -14,6 +12,8 @@ git init
 
 ```
 vim readme.txt
+或者
+touch a.txt	
 ```
 
 ![image-20220422095911305](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220422095911305.png)
@@ -99,6 +99,15 @@ git switch dev
 其中dev需要是已经创建了的
 ```
 
+#### 克隆远程库已经建好的分支到本地并创建此分支
+
+```
+git checkout -b feature origin/develop
+在本地创建feature分支，该分支来自远程库origin的develop分支
+```
+
+
+
 ### 合并分支
 
 ```
@@ -174,6 +183,32 @@ git add helloworld.txt
 git commit -m "冲突已解决"
 ```
 
+### 删除分支
+
+#### 删除本地分支
+
+```
+git branch -d feature
+删除feature分支
+```
+
+
+
+#### 删除远程库的分支
+
+```
+git push origin -d feature
+删除远程库origin的feature分支
+```
+
+## 拉取远程库的最新修改
+
+```
+git pull
+```
+
+
+
 # 图形界面方式
 
 ## 创建本地Git仓库
@@ -238,3 +273,16 @@ OK
 
 解决冲突之后还需要提交一下
 
+# 华为云codehub使用教程
+
+## 合并请求
+
+将远程库的分支合并到某分支上
+
+![image-20220424201801485](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220424201801485.png)![image-20220424201814493](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220424201814493.png)
+
+## 标签
+
+![image-20220424201840021](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220424201840021.png)
+
+标签没啥用，就是用于标记一下你觉得比较重要的
