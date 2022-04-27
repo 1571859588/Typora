@@ -185,6 +185,10 @@ git add helloworld.txt
 git commit -m "冲突已解决"
 ```
 
+#### 常见冲突
+
+![image-20220427221921673](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20220427221921673.png)
+
 ### 删除分支
 
 #### 删除本地分支
@@ -202,6 +206,8 @@ git branch -d feature
 git push origin -d feature
 删除远程库origin的feature分支
 ```
+
+### 
 
 ## 拉取远程库的最新修改
 
