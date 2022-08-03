@@ -1,10 +1,10 @@
-async function f()
-{
-    try{
-        return await Promise.resolve('成功了');
-    }catch(e)
-    {
-        return await Promise.reject('出错了');
-    }
-}
-f().then(v=>console.log(v)).catch(e=>console.log(e));
+var a=new Promise(function(resolve,reject){
+    let b=1;
+    if(b===1)resolve('success');
+    else reject('fail');
+});
+a.then(res=>{
+    console.log(res);
+}).catch(err=>{
+    console.log(err);
+})
